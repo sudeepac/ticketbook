@@ -18,7 +18,9 @@ mongoose.connect("mongodb://localhost:27017/ticketDB", {useNewUrlParser: true});
 
 const ticketSchema = {
   title: String,
-  content: String
+  content: String,
+  priority: String,
+  status: String
 };
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
