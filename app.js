@@ -18,9 +18,7 @@ mongoose.connect("mongodb://localhost:27017/ticketDB", {useNewUrlParser: true});
 
 const ticketSchema = {
   title: String,
-  content: String,
-  priority: String,
-  status: String
+  content: String
 };
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
@@ -32,7 +30,7 @@ app.route("/tickets")
 .get(function(req, res){
   Ticket.find(function(err, foundTickets){
     if (!err) {
-      res.send(foundTickets);
+      res.render("list", {listTitle: "Ticket List", tickets: foundTickets});
     } else {
       res.send(err);
     }
@@ -40,6 +38,9 @@ app.route("/tickets")
 })
 
 .post(function(req, res){
+
+  console.log(req.body.title);
+  console.log(req.body.content)
 
   const newTicket = new Ticket({
     title: req.body.title,

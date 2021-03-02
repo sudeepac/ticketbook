@@ -1,0 +1,149 @@
+html {
+  /* background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%); */
+  /* background: linear-gradient(#e4e9fd, #a683e3); */
+  min-height: 1000px;
+  font-family: "Fira Code";
+  text-align: center;
+}
+
+body {
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite; */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+  color: #fff;
+  padding: 5px;
+  font-size: 40px;
+}
+
+h2 {
+  color: rgb(14, 13, 13);
+  padding: 5px;
+  font-size: 40px;
+}
+
+.box {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #a683e3;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked + p {
+  text-decoration: line-through;
+  text-decoration-color: #a683e3;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+form.item {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button {
+  height: 60px;
+  width: 100px;
+  border-radius: 10%;
+  border-color: transparent;
+  background-color: #a683e3;
+  color: #fff;
+  font-size: 20px;
+  padding-bottom: 6px;
+  border-width: 0;
+  /* margin: 10px; */
+}
+
+.incorrect {
+  background-color: #db1366;
+}
+
+.correct {
+  background-color: #0da507;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #a683e3;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+a {
+  color: blue;
+  font-size: 30px;
+  /* margin: 50px;
+  padding: 50px; */
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 5px;
+}
