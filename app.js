@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/ticketDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/ticketDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 const ticketSchema = {
   title: String,
@@ -49,7 +49,9 @@ app.route("/tickets")
 
   newTicket.save(function(err){
     if (!err){
-      res.send("Successfully added a new ticket.");
+      // res.send("Successfully added a new ticket.");  //original code
+      console.log("Successfully added a new ticket."); //to replace Row 52
+      res.redirect("/tickets")  //to replace Row 52
     } else {
       res.send(err);
     }
@@ -125,6 +127,19 @@ app.route("/tickets/:ticketTitle")
   );
 });
 
+
+///// Maybe there's a way to incorporate this in the delete codes in ticket and ticketTitle route /////
+
+app.post("/delete", function(req, res) {
+  const clickedTicketID = req.body.trash;
+
+  Ticket.findByIdAndRemove(clickedTicketID, function(err){
+    if (!err) {
+      console.log("Successfully deleted the clicked ticket.");
+      res.redirect("/tickets")
+    }
+  })
+})
 
 
 app.listen(3000, function() {

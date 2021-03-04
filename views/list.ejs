@@ -5,25 +5,31 @@
 </div>
 
 <% tickets.forEach(function(ticket){ %>
-<p><%= ticket.title %> &nbsp <%= ticket.content %></p>
+  <form class="" action="/delete" method="post">
+    <div>
+      <p><%= ticket.title %> &nbsp <%= ticket.content %>
+        <span><button type="submit" name="edit"><i class="fas fa-edit"></i></button></span>
+        <span><button type="submit" name="trash" value="<%= ticket._id %>" onClick="this.form.submit()"><i class="fas fa-trash-alt"></i></button></span>
+      </p>      
+    </div>
+  </form>
 
 <% }); %>
 
-<form class="" action="/tickets" method="post">
-  <input
-    type="text"
-    name="title"
-    placeholder="Ticket Title"
-    autocomplete="off"
-  />
-  <input
-    type="text"
-    name="content"
-    placeholder="Ticket Content"
-    autocomplete="off"
-  />
-
-  <button type="submit" name="ticket" value="">+</button>
-</form>
+  <form class="" action="/tickets" method="post">
+    <input
+      type="text"
+      name="title"
+      placeholder="Ticket Title"
+      autocomplete="off"
+    />
+    <input
+      type="text"
+      name="content"
+      placeholder="Ticket Content"
+      autocomplete="off"
+    />
+    <button type="submit" name="ticket" value="">+</button>
+  </form>
 
 <%- include("footer") -%>
